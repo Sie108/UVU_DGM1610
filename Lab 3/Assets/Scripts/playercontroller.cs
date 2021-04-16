@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playercontroller : MonoBehaviour
 {
-    private float speed = 5.0f;
+    private float speed = 50.0f;
     private float zBound = 30;
     private Rigidbody playerRb;
 
@@ -30,6 +30,7 @@ public class playercontroller : MonoBehaviour
         playerRb.AddForce(Vector3.forward * speed * verticalInput);
         playerRb.AddForce(Vector3.right * speed * horizontalInput);
     }
+
     //Stops player from leaving top or bottom of screen
     void ConstrainPlayerPosition()
     {
@@ -44,4 +45,19 @@ public class playercontroller : MonoBehaviour
         }    
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Player has collided with enemy.");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
