@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    //This is the code that allows the prefabs to spawn/move in the game
     public GameObject[] enemies;
     public GameObject powerup;
-
+    //General coordinates on where the enemies spawn
     private float zEnemySpawn = 12.0f;
     private float xSpawnRange = 16.0f;
     private float zPowerupRange = 5.0f;
@@ -28,7 +29,7 @@ public class SpawnManager : MonoBehaviour
     {
         
     }
-
+    // This is what causes the enemies to spawn in a random order
     void SpawnRandomEnemy()
     {
         float randomX = Random.Range(-xSpawnRange, xSpawnRange);
@@ -38,7 +39,7 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(enemies[randomIndex], spawnPos, enemies[randomIndex].gameObject.transform.rotation);
     }
-
+    //This is what makes the powerups appear
     void SpawnPowerup()
     {
         float randomX = Random.Range(-xSpawnRange, xSpawnRange);

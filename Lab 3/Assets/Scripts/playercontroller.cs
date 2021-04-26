@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playercontroller : MonoBehaviour
 {
+    //This is what allows the player to move/stay in bounds/ collide with objects
     private float speed = 50.0f;
     private float zBound = 30;
     private Rigidbody playerRb;
@@ -44,7 +45,7 @@ public class playercontroller : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }    
     }
-
+    // More extensive code on collison with enemies
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
@@ -52,7 +53,7 @@ public class playercontroller : MonoBehaviour
             Debug.Log("Player has collided with enemy.");
         }
     }
-
+    // Code to recieve powerups
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Powerup"))
