@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Undefined
   - Enemy
   - Powerup
   layers:
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - PostProcessing
   - 
   - 
   - 
